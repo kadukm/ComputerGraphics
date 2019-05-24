@@ -1,4 +1,4 @@
-package ru.mokeev.parent;
+package ru.mokeev.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

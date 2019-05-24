@@ -1,4 +1,4 @@
-package ru.mokeev.parent;
+package ru.mokeev.service;
 
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.stereotype.Service;
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.awt.*;
 
 @Service
-public class DrawingComponent extends Component {
+public class DrawingService extends Component {
     private double xMin = -20;
     private double xMax = 20;
     private double width = 1000;

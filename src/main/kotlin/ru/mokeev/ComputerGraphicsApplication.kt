@@ -1,4 +1,4 @@
-package ru.mokeev.parent
+package ru.mokeev
 
 import org.springframework.boot.Banner
 import org.springframework.boot.autoconfigure.SpringBootApplication
