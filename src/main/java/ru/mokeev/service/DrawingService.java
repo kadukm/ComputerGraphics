@@ -1,31 +1,29 @@
 package ru.mokeev.service;
 
 import org.apache.commons.lang3.tuple.Pair;
-import org.springframework.stereotype.Service;
 
 import java.awt.*;
 
-@Service
 public class DrawingService extends Component {
-    private double xMin = -20;
-    private double xMax = 20;
-    private double width = 1000;
-    private double height = 600;
+    private final double xMin;
+    private final double xMax;
+    private final double width;
+    private final double height;
 
     private double yMin;
     private double yMax;
 
     private Graphics2D g2d;
 
-    public void draw() {
+    public DrawingService(double xMin, double xMax, double width, double height) {
+        this.xMin = xMin;
+        this.xMax = xMax;
+        this.width = width;
+        this.height = height;
+
         Pair<Double, Double> minMax = findMinMaxY();
         this.yMin = minMax.getLeft();
         this.yMax = minMax.getRight();
-
-        javax.swing.JFrame frame = new javax.swing.JFrame();
-        frame.setSize((int) width, (int) height);
-        frame.setVisible(true);
-        frame.getContentPane().add(this);
     }
 
     public void paint(Graphics g) {
