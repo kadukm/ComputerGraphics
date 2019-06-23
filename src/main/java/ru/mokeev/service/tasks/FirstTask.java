@@ -1,10 +1,10 @@
-package ru.mokeev.service;
+package ru.mokeev.service.tasks;
 
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.awt.*;
 
-public class DrawingService extends Component {
+public class FirstTask extends Component {
     private final double xMin;
     private final double xMax;
     private final double width;
@@ -13,9 +13,9 @@ public class DrawingService extends Component {
     private double yMin;
     private double yMax;
 
-    private Graphics2D g2d;
+    private Graphics2D g2;
 
-    public DrawingService(double xMin, double xMax, double width, double height) {
+    public FirstTask(double xMin, double xMax, double width, double height) {
         this.xMin = xMin;
         this.xMax = xMax;
         this.width = width;
@@ -26,8 +26,12 @@ public class DrawingService extends Component {
         this.yMax = minMax.getRight();
     }
 
+    public static Double calculateFunction(double x) {
+        return Math.cos(x) * Math.pow(x, 2);
+    }
+
     public void paint(Graphics g) {
-        g2d = (Graphics2D) g;
+        g2 = (Graphics2D) g;
 
         drawAxes();
         drawFunction();
@@ -44,11 +48,6 @@ public class DrawingService extends Component {
             oldYY = yy;
         }
     }
-
-    public Double calculateFunction(double x) {
-        return Math.cos(x) * Math.pow(x, 2);
-    }
-
 
     private Pair<Double, Double> coordinatesToScreen(Double x, Double y) {
         return Pair.of(
@@ -101,9 +100,9 @@ public class DrawingService extends Component {
             drawLine(xxRight, yy - 2, xxRight, yy + 2);
             drawLine(xxLeft, yy - 2, xxLeft, yy + 2);
 
-            g2d.setFont(new Font("TimesRoman", Font.PLAIN, 10));
-            g2d.drawString(String.valueOf((int) x), (int) xxRight - 4, (int) yy + 15);
-            g2d.drawString(String.valueOf((int) -x), (int) xxLeft - 7, (int) yy + 15);
+            g2.setFont(new Font("TimesRoman", Font.PLAIN, 10));
+            g2.drawString(String.valueOf((int) x), (int) xxRight - 4, (int) yy + 15);
+            g2.drawString(String.valueOf((int) -x), (int) xxLeft - 7, (int) yy + 15);
         }
 
         int stepY = Integer.max(1, (int) Math.round(screenToCoordinates(0d, 0d).getRight() - screenToCoordinates(0d, 32d).getRight()));
@@ -117,17 +116,17 @@ public class DrawingService extends Component {
             drawLine(xx - 2, yyTop, xx + 2, yyTop);
             drawLine(xx - 2, yyBot, xx + 2, yyBot);
 
-            g2d.setFont(new Font("TimesRoman", Font.PLAIN, 10));
-            g2d.drawString(String.valueOf((int) y), (int) xx + 15, (int) yyTop + 3);
-            g2d.drawString(String.valueOf((int) -y), (int) xx + 15, (int) yyBot + 3);
+            g2.setFont(new Font("TimesRoman", Font.PLAIN, 10));
+            g2.drawString(String.valueOf((int) y), (int) xx + 15, (int) yyTop + 3);
+            g2.drawString(String.valueOf((int) -y), (int) xx + 15, (int) yyBot + 3);
         }
     }
 
     private void drawPoint(Double x, Double y) {
-        g2d.drawLine(x.intValue(), y.intValue(), x.intValue(), y.intValue());
+        g2.drawLine(x.intValue(), y.intValue(), x.intValue(), y.intValue());
     }
 
     private void drawLine(Double x1, Double y1, Double x2, Double y2) {
-        g2d.drawLine(x1.intValue(), y1.intValue(), x2.intValue(), y2.intValue());
+        g2.drawLine(x1.intValue(), y1.intValue(), x2.intValue(), y2.intValue());
     }
 }
