@@ -29,8 +29,19 @@ public class SecondTask extends JPanel {
     public void paint(Graphics g) {
         super.paint(g);
         this.g = g;
-
+        drawAxes();
         draw(0, 0);
+    }
+
+    private void drawAxes() {
+        for (int x = 0; x < getWidth(); x++) {
+            plot(g, x, 0);
+            plot(g, -x, 0);
+        }
+        for (int y = 0; y < getHeight(); y++) {
+            plot(g, 0, y);
+            plot(g, 0, -y);
+        }
     }
 
     private double p() {
@@ -41,7 +52,7 @@ public class SecondTask extends JPanel {
         double p = p();
 
         //  центр
-        double x0 = A / C;
+        double x0 = -A / C;
         double y0 = 0;
         System.out.println(x0);
         System.out.println(y0);
@@ -51,7 +62,7 @@ public class SecondTask extends JPanel {
         Sv = getSv(x, y, p);  // горизонталь
         Sh = getSh(x, y, p);  // вертикаль
 
-        plot(g, direction * x0, y0, Color.RED, 2, 2);
+        plot(g, direction * x0, y0, Color.RED, 1, 1);
         while (x + x0 < getWidth()) // пока полотно не кончится
         {
             if (Math.abs(Sh) - Math.abs(Sv) <= 0) {
@@ -90,7 +101,7 @@ public class SecondTask extends JPanel {
         g.setColor(color);
         g.drawOval(x.intValue(), y.intValue(), sizeX, sizeY);
     }
-    
+
     private void plot(Graphics g, double x, double y) {
         plot(g, x, y, Color.BLACK, 1, 1);
     }
@@ -105,6 +116,6 @@ public class SecondTask extends JPanel {
         double borderY = getHeight() - ((2 * maxY + 1) * pixelSize + 1);
         double left = (x + maxX) * pixelSize + borderX / 2;
         double top = (y + maxY) * pixelSize + borderY / 2;
-        putPixel(g, left, top, color,sizeX, sizeY);
+        putPixel(g, left, top, color, sizeX, sizeY);
     }
 }
