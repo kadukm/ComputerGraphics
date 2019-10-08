@@ -20,11 +20,11 @@ class HomeWorkStarerService {
 
     @EventListener(value = [ApplicationReadyEvent::class])
     fun init() {
-        second()
+//        second()
 
 //        ThirdTask(Point(1, 1), Point(10, 1), Point(2, 2))
 
-//        drawFirstHomeWork()
+        drawFirstHomeWork()
     }
 }
 
@@ -35,7 +35,7 @@ fun second() {
     f.pack()
     f.isVisible = true
 
-    f.contentPane.add(SecondTask(10, 10, 1))
+    f.contentPane.add(SecondTask(10, 5, -2))
 
     f.setLocationRelativeTo(null)
 
