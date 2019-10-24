@@ -53,7 +53,7 @@ public class FourthTask extends JPanel {
 
         for (int i = 0; i <= n; i++) {
             double x = x2 + i * (x1 - x2) / n;
-            for (int j = 0; j < m; j++) {
+            for (int j = 0; j <= m; j++) {
                 double y = y2 + j * (y1 - y2) / m;
                 double z = function.apply(x, y);
 
@@ -82,9 +82,9 @@ public class FourthTask extends JPanel {
         }
 
         findMinMaxAcross();
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i <= n; i++) {
             double y = y2 + i * (y1 - y2) / n;
-            for (int j = 0; j < m; j++) {
+            for (int j = 0; j <= m; j++) {
                 double x = x2 + j * (x1 - x2) / m;
                 double z = function.apply(x, y);
 
