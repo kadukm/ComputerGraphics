@@ -9,6 +9,7 @@ import ru.mokeev.Constants.xMax
 import ru.mokeev.Constants.xMin
 import ru.mokeev.service.helpers.Point
 import ru.mokeev.service.tasks.FirstTask
+import ru.mokeev.service.tasks.FourthTask
 import ru.mokeev.service.tasks.SecondTask
 import ru.mokeev.service.tasks.ThirdTask
 import java.awt.Dimension
@@ -22,13 +23,30 @@ class HomeWorkStarerService {
 
     @EventListener(value = [ApplicationReadyEvent::class])
     fun init() {
-//        second()
-        third()
-
-//        ThirdTask(Point(1, 1), Point(10, 1), Point(2, 2))
 
 //        drawFirstHomeWork()
+//        second()
+//        third()
+        fourth()
     }
+}
+
+fun fourth() {
+    val f = JFrame()
+    f.pack()
+    f.defaultCloseOperation = EXIT_ON_CLOSE
+    f.contentPane.preferredSize = Dimension(width.toInt(), height.toInt())
+    f.isVisible = true
+
+
+
+//    f.contentPane.add(FourthTask { x, y -> (x-y)*y})
+
+//    f.contentPane.add(FourthTask { x, y -> x * x * x })
+//    f.contentPane.add(FourthTask { x, y -> 10.0 })
+    f.contentPane.add(FourthTask { x, y -> Math.cos(x * y) })
+    f.pack()
+
 }
 
 fun third() {
