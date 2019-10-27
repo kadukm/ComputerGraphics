@@ -18,8 +18,8 @@ public class FirstTask extends Component {
     public FirstTask(double xMin, double xMax, double width, double height) {
         this.xMin = xMin;
         this.xMax = xMax;
-        this.width = width;
-        this.height = height;
+        this.width = width - 1;
+        this.height = height - 1;
 
         Pair<Double, Double> minMax = findMinMaxY();
         this.yMin = minMax.getLeft();
