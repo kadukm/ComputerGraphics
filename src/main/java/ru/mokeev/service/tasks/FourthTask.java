@@ -19,8 +19,8 @@ public class FourthTask extends JPanel {
 
     private double n = 50;
     private double m = Constants.width * 2;
-    private double mx = Constants.width;
-    private double my = Constants.height;
+    private double mx = Constants.width - 1;
+    private double my = Constants.height - 1;
 
     private double minX;
     private double maxX;
@@ -46,8 +46,8 @@ public class FourthTask extends JPanel {
         List<Integer> top = new ArrayList<>();
         List<Integer> bot = new ArrayList<>();
 
-        for (int i = 0; i <= Constants.width + 1000; i++) {
-            top.add((int) Constants.height + 1);
+        for (int i = 0; i <= this.mx + 1000; i++) {
+            top.add((int) this.my + 1);
             bot.add(0);
         }
 
@@ -76,8 +76,8 @@ public class FourthTask extends JPanel {
         top = new ArrayList<>();
         bot = new ArrayList<>();
 
-        for (int i = 0; i <= Constants.width + 1000; i++) {
-            top.add((int) Constants.height + 1);
+        for (int i = 0; i <= this.mx + 1000; i++) {
+            top.add((int) this.my + 1);
             bot.add(0);
         }
 
