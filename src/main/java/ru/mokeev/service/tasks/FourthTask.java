@@ -63,11 +63,11 @@ public class FourthTask extends JPanel {
                 int xx = Math.toIntExact(Math.round((xp - minX) * mx / (maxX - minX)));
                 int yy = Math.toIntExact(Math.round((yp - minY) * my / (maxY - minY)));
                 if (yy > bot.get(xx)) {
-                    putPixel(xx, yy, Color.RED, 1, 1);
+                    putPixel(xx, yy, Color.RED);
                     bot.set(xx, yy);
                 }
                 if (yy < top.get(xx)) {
-                    putPixel(xx, yy, Color.BLUE, 1, 1);
+                    putPixel(xx, yy, Color.BLUE);
                     top.set(xx, yy);
                 }
             }
@@ -94,11 +94,11 @@ public class FourthTask extends JPanel {
                 int xx = Math.toIntExact(Math.round((xp - minX) * mx / (maxX - minX)));
                 int yy = Math.toIntExact(Math.round((yp - minY) * my / (maxY - minY)));
                 if (yy > bot.get(xx)) {
-                    putPixel(xx, yy, Color.RED, 1, 1);
+                    putPixel(xx, yy, Color.RED);
                     bot.set(xx, yy);
                 }
                 if (yy < top.get(xx)) {
-                    putPixel(xx, yy, Color.BLUE, 1, 1);
+                    putPixel(xx, yy, Color.BLUE);
                     top.set(xx, yy);
                 }
             }
@@ -157,8 +157,8 @@ public class FourthTask extends JPanel {
         return new DoublePoint((y - x) * Math.sqrt(3.0) / 2, (x + y) / 2 - z);
     }
 
-    private void putPixel(int x, int y, Color color, int sizeX, int sizeY) {
+    private void putPixel(int x, int y, Color color) {
         g.setColor(color);
-        g.drawOval(x, y, sizeX, sizeY);
+        g.drawOval(x - 1, y - 1, 1, 1);
     }
 }
